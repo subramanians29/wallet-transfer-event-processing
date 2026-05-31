@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource = "/org/springframework/boot/logging/logback/defaults.xml"/>
+
+    <springProfile name = "!json">
+        <appender name = "CONSOLE" class = "ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{ISO8601} [%thread] [%X{correlationId:-}] %-5level %logger{36} - %msg%n</pattern>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <springProfile name = "!json">
+        <appender name = "CONSOLE" class = "ch.qos.logback.core.ConsoleAppender">
+            <encoder class = "net.logstash.logback.encoder.LogstashEncoder">
+                <includeMdcKeyName>correlationId</includeMdcKeyName>
+                <timeZone>UTC</timeZone>
+            </encoder>
+        </appender>
+    </springProfile>
+
+    <root level = "INFO">
+        <appender-ref ref = "CONSOLE"/>
+    </root>
+
+    <logger name = "com.wallet.transfer" level = "DEBUG"/>
+    <logger name = "org.springframework.kafka" level = "INFO"/>
+    <logger name = "org.apache.kafka" level = "WARN"/>
+</configuration>
