@@ -1,6 +1,8 @@
 # Wallet Transfer Event Processing
 
-> **AI-Assisted Project** — This project was built with the assistance of [Claude Code](https://claude.ai/code). The architecture, code structure, and implementation were developed collaboratively through iterative prompting, code review, and refinement. All design decisions were evaluated and understood by me before inclusion.
+> **Tooling note:** Developed with Claude and GitHub Copilot as coding assistants.
+> Architecture decisions, trade-off analysis, and design choices are my own —  
+> documented in the *What would I do differently?* section below.
 
 ---
 
